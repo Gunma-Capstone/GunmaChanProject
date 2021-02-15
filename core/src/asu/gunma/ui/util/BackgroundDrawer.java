@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.Random;
 
+import asu.gunma.ui.util.AssetManagement.GameAssets;
+
 public class BackgroundDrawer {
 
     private SpriteBatch batch;
@@ -26,25 +28,27 @@ public class BackgroundDrawer {
     private double cloudB2Position;
     private double cloudB3Position;
 
+    private GameAssets gameAssets;
+
     private final double CLOUD_X_MAX = 1024;
     private final double CLOUD_Y_MAX = 600;
 
     // This is a final defined in GameScreen
     private int screen_bottom_adjust;
 
-    public BackgroundDrawer(SpriteBatch batch, int screen_bottom_adjust) {
+    public BackgroundDrawer(SpriteBatch batch, int screen_bottom_adjust, GameAssets gameAssets) {
         this.batch = batch;
         this.screen_bottom_adjust = screen_bottom_adjust;
 
-        this.grass = new Texture("background/grassx2.png");
-        this.mountain = new Texture("background/mountainx3.png");
-        this.sky = new Texture("background/skyx2.png");
+        this.grass = new Texture(gameAssets.grassImagePath);
+        this.mountain = new Texture(gameAssets.mountainImagePath);
+        this.sky = new Texture(gameAssets.skyImagePath);
 
-        this.cloudA1 = new Texture("background/cloud1.png");
-        this.cloudA2 = new Texture("background/cloud1.png");
-        this.cloudB1 = new Texture("background/cloud2.png");
-        this.cloudB2 = new Texture("background/cloud2.png");
-        this.cloudB3 = new Texture("background/cloud2.png");
+        this.cloudA1 = new Texture(gameAssets.cloud1Path);
+        this.cloudA2 = new Texture(gameAssets.cloud1Path);
+        this.cloudB1 = new Texture(gameAssets.cloud2Path);
+        this.cloudB2 = new Texture(gameAssets.cloud2Path);
+        this.cloudB3 = new Texture(gameAssets.cloud2Path);
 
         this.random = new Random();
         this.grassPosition = 0.0;
